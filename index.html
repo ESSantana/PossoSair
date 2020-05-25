@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="shortcut icon" href="coronavirus.png"/>
+  <title>Posso Sair?</title>
+</head>
+
+<body>
+  <nav class="bg">
+    <h1>Posso Sair?</h1>
+  </nav>
+  <div class="conteudo">
+    <h2>Baseado na minha localização, posso sair?</h2>
+    <div id="aviso"> ? </div>
+  </div>
+  <footer>
+    Fique em casa, se proteja!
+  </footer>
+  <script>
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(() => {
+        let div = document.getElementById("aviso")
+        div.style.backgroundColor = "#ff4a4a";
+        div.innerHTML = "Não";
+      }, err => {
+        console.log(err);
+        alert('Não foi possível obter sua localização, por favor tente novamente!')
+      })
+    } else {
+      alert('Não foi possível obter sua localização')
+    }
+  </script>
+</body>
+
+</html>
